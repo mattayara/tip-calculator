@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tip Calculator</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 420px; margin: 40px auto; padding: 0 16px; }
+    label { display: block; margin-top: 14px; }
+    input { width: 100%; padding: 8px; font-size: 16px; box-sizing: border-box; }
+    button { margin-top: 18px; padding: 10px 18px; font-size: 16px; cursor: pointer; }
+    #result { margin-top: 18px; font-size: 18px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Tip Calculator</h1>
+
+  <label>Bill amount
+    <input id="bill" type="number" value="50">
+  </label>
+  <label>Tip %
+    <input id="tip" type="number" value="15">
+  </label>
+
+  <button onclick="showResult()">Calculate</button>
+  <p id="result"></p>
+
+  <script src="calc.js"></script>
+  <script>
+    function showResult() {
+      const bill = Number(document.getElementById("bill").value);
+      const tip = Number(document.getElementById("tip").value);
+      const out = document.getElementById("result");
+      try {
+        out.textContent = "Tip: " + calculateTip(bill, tip) +
+                          " | Total: " + calculateTotal(bill, tip);
+      } catch (error) {
+        out.textContent = error.message;
+      }
+    }
+  </script>
+</body>
+</html>
