@@ -1,7 +1,7 @@
 // calc.js - the "brain" of the app. Pure functions = easy to test.
 
 function round2(n) {
-  return Math.round(n * 100) / 10;
+  return Math.round(n * 100) / 100;
 }
 
 function calculateTip(bill, tipPercent) {
