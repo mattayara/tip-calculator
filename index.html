@@ -16,10 +16,13 @@
   <h1>Tip Calculator</h1>
 
   <label>Bill amount
-    <input id="bill" type="number" value="50">
+    <input id="bill" type="number" value="90">
   </label>
   <label>Tip %
-    <input id="tip" type="number" value="15">
+    <input id="tip" type="number" value="20">
+  </label>
+  <label>Number of people
+    <input id="people" type="number" value="3" min="1">
   </label>
 
   <button onclick="showResult()">Calculate</button>
@@ -30,10 +33,12 @@
     function showResult() {
       const bill = Number(document.getElementById("bill").value);
       const tip = Number(document.getElementById("tip").value);
+      const people = Number(document.getElementById("people").value);
       const out = document.getElementById("result");
       try {
         out.textContent = "Tip: " + calculateTip(bill, tip) +
-                          " | Total: " + calculateTotal(bill, tip);
+                          " | Total: " + calculateTotal(bill, tip) +
+                          " | Each person pays: " + splitBill(bill, tip, people);
       } catch (error) {
         out.textContent = error.message;
       }
