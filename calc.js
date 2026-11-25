@@ -15,7 +15,14 @@ function calculateTotal(bill, tipPercent) {
   return round2(bill + calculateTip(bill, tipPercent));
 }
 
+function splitBill(bill, tipPercent, people) {
+  if (!Number.isInteger(people) || people < 1) {
+    throw new Error("Number of people must be 1 or more");
+  }
+  return round2(calculateTotal(bill, tipPercent) / people);
+}
+
 // Lets the test file (Node.js) use these functions. The browser ignores this.
 if (typeof module !== "undefined") {
-  module.exports = { calculateTip, calculateTotal };
+  module.exports = { calculateTip, calculateTotal, splitBill };
 }
