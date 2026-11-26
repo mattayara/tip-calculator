@@ -21,6 +21,6 @@ test("a 90 bill with 20% tip split by 3 is 36 each", () => {
 test("splitting between 0 people is rejected", () => {
   assert.throws(() => splitBill(90, 20, 0));
 });
-test("10% tip on a 200 bill is 20", () => {
+test("a 10% tip on a 200 bill is 20", () => {
   assert.strictEqual(calculateTip(200, 10), 20);
 });
